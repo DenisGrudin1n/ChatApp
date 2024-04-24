@@ -2,6 +2,7 @@ import 'package:chatapp/components/login_upper_ui.dart';
 import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
+import 'package:chatapp/services/auth_service.dart';
 import 'package:chatapp/views/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,27 @@ class LoginPage extends StatelessWidget {
 
   LoginPage({super.key});
 
-  void login() {}
+  void login(BuildContext context) async {
+    // auth service
+    final authService = AuthService();
+
+    // try login
+    try {
+      await authService.signInWithEmailPassword(
+          emailController.text, passwordController.text);
+    }
+
+    // catch errors
+    catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(
+                  e.toString(),
+                ),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +96,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     MyDefaultButton(
                       text: "Get Started",
-                      onTap: login,
+                      onTap: () => login(context),
                     ),
                     const SizedBox(
                       height: 40,

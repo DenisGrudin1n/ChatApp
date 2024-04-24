@@ -9,23 +9,20 @@ class MyDefaultButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: TextButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(lightPurple),
-          shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))),
-          fixedSize: MaterialStateProperty.all(const Size(335, 60)),
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.secondary,
-              fontSize: 16,
-              fontWeight: mediumFontWeight),
-        ),
+    return TextButton(
+      onPressed: onTap,
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(lightPurple),
+        shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))),
+        fixedSize: MaterialStateProperty.all(const Size(335, 60)),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+            fontSize: 16,
+            fontWeight: mediumFontWeight),
       ),
     );
   }
