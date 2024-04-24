@@ -3,6 +3,7 @@ import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
 import 'package:chatapp/services/auth_service.dart';
+import 'package:chatapp/views/pages/home_page.dart';
 import 'package:chatapp/views/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,24 +14,26 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   void login(BuildContext context) async {
-    // auth service
+    // get auth service
     final authService = AuthService();
 
-    // try login
-    try {
-      await authService.signInWithEmailPassword(
-          emailController.text, passwordController.text);
-    }
-
-    // catch errors
-    catch (e) {
+    String res = await authService.signInWithEmailPassword(
+        emailController.text, passwordController.text);
+    if (context.mounted) {
+      if (res == "Success") {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const HomePage()));
+      }
       showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-                title: Text(
-                  e.toString(),
-                ),
-              ));
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Center(
+            child: Text(
+              res,
+            ),
+          ),
+        ),
+      );
     }
   }
 

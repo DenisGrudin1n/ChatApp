@@ -2,6 +2,8 @@ import 'package:chatapp/components/login_upper_ui.dart';
 import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
+import 'package:chatapp/services/auth_service.dart';
+import 'package:chatapp/views/pages/home_page.dart';
 import 'package:chatapp/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,29 @@ class RegisterPage extends StatelessWidget {
 
   RegisterPage({super.key});
 
-  void register() {}
+  void register(BuildContext context) async {
+    // get auth service
+    final authService = AuthService();
+
+    String res = await authService.signUpWithEmailPassword(
+        usernameController.text, emailController.text, passwordController.text);
+    if (context.mounted) {
+      if (res == "Success") {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const HomePage()));
+      }
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Center(
+            child: Text(
+              res,
+            ),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +68,7 @@ class RegisterPage extends StatelessWidget {
                         Expanded(
                           child: MyTextField(
                             hintText: "Username",
-                            obscureText: true,
+                            obscureText: false,
                             controller: usernameController,
                           ),
                         ),
@@ -101,7 +125,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                     MyDefaultButton(
                       text: "Create Account",
-                      onTap: register,
+                      onTap: () => register(context),
                     ),
                     const SizedBox(
                       height: 25,

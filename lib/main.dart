@@ -1,3 +1,4 @@
+import 'package:chatapp/controllers/auth_controller.dart';
 import 'package:chatapp/controllers/login_or_register_controller.dart';
 import 'package:chatapp/firebase_options.dart';
 import 'package:chatapp/services/auth_gate.dart';
@@ -9,8 +10,16 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(ChangeNotifierProvider(
-      create: (context) => LoginOrRegisterController(), child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthController()),
+        ChangeNotifierProvider(
+            create: (context) => LoginOrRegisterController()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

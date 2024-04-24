@@ -1,13 +1,19 @@
 import 'package:chatapp/services/auth_service.dart';
+import 'package:chatapp/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  void logout() {
-    // get auth service
+  void logout(BuildContext context) async {
     final authService = AuthService();
-    authService.signOut();
+
+    await authService.signOut();
+
+    if (context.mounted) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
+    }
   }
 
   @override
@@ -16,7 +22,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home"),
         actions: [
-          IconButton(onPressed: logout, icon: const Icon(Icons.logout))
+          IconButton(
+              onPressed: () => logout(context), icon: const Icon(Icons.logout))
         ],
       ),
     );

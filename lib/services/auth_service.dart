@@ -5,17 +5,31 @@ class AuthService {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   // sign in
-  Future<UserCredential> signInWithEmailPassword(String email, password) async {
+  Future<String> signInWithEmailPassword(String email, String password) async {
+    String res = "";
     try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return userCredential;
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+      res = "Success";
     } on FirebaseAuthException catch (e) {
-      throw Exception(e.code);
+      res = e.code;
     }
+    return res;
   }
 
   // sign up
+  Future<String> signUpWithEmailPassword(
+      String username, String email, String password) async {
+    String res = "";
+    try {
+      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      await userCredential.user?.updateDisplayName(username);
+      res = "Success";
+    } on FirebaseAuthException catch (e) {
+      res = e.code;
+    }
+    return res;
+  }
 
   // sign out
   Future<void> signOut() async {
