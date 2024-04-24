@@ -8,6 +8,14 @@ class HomePage extends StatelessWidget {
   void logout(BuildContext context) async {
     final authService = AuthService();
 
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const Center(child: CircularProgressIndicator());
+      },
+    );
+
     await authService.signOut();
 
     if (context.mounted) {

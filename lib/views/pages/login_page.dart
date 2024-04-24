@@ -2,8 +2,7 @@ import 'package:chatapp/components/login_upper_ui.dart';
 import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
-import 'package:chatapp/services/auth_service.dart';
-import 'package:chatapp/views/pages/home_page.dart';
+import 'package:chatapp/services/auth_manager.dart';
 import 'package:chatapp/views/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,26 +13,14 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   void login(BuildContext context) async {
-    // get auth service
-    final authService = AuthService();
+    final authManager = AuthManager();
+    authManager.showLoadingDialog(context);
 
-    String res = await authService.signInWithEmailPassword(
-        emailController.text, passwordController.text);
+    String res =
+        await authManager.signIn(emailController.text, passwordController.text);
+
     if (context.mounted) {
-      if (res == "Success") {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const HomePage()));
-      }
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Center(
-            child: Text(
-              res,
-            ),
-          ),
-        ),
-      );
+      authManager.navigateToHome(context, res, res == "Success");
     }
   }
 
@@ -56,7 +43,7 @@ class LoginPage extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.only(left: 30.0, top: 15),
                           child: Icon(
-                            Icons.person,
+                            Icons.email,
                             color: lightPurple,
                             size: 30,
                           ),
