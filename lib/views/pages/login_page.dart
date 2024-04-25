@@ -1,4 +1,4 @@
-import 'package:chatapp/components/login_upper_ui.dart';
+import 'package:chatapp/components/my_login_upperpart_ui.dart';
 import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
