@@ -21,6 +21,14 @@ class LoginPage extends StatelessWidget {
 
     if (context.mounted) {
       authManager.navigateToHome(context, res, res == "Success");
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Center(
+            child: Text(res),
+          ),
+        ),
+      );
     }
   }
 

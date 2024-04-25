@@ -37,4 +37,30 @@ class AuthService {
   }
 
   // errors
+
+  // username validation
+  String validateUsername(String username) {
+    // Мінімальна та максимальна довжина імені
+    const int minUsernameLength = 6;
+    const int maxUsernameLength = 20;
+
+    // Регулярний вираз для перевірки допустимих символів
+    final RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9_]+$');
+
+    // Перевірка на мінімальну та максимальну довжину імені
+    if (username.length < minUsernameLength ||
+        username.length > maxUsernameLength) {
+      return 'Username must be between $minUsernameLength and $maxUsernameLength characters';
+    }
+
+    // Перевірка на допустимі символи
+    if (!usernameRegex.hasMatch(username)) {
+      return 'Username can only contain letters, numbers, and underscores';
+    }
+
+    // Перевірка на унікальність імені користувача (при необхідності)
+
+    // Якщо всі перевірки пройшли успішно, повертаємо null (немає помилок)
+    return "Success";
+  }
 }

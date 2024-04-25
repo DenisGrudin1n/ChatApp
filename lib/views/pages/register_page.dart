@@ -3,6 +3,7 @@ import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
 import 'package:chatapp/services/auth_manager.dart';
+import 'package:chatapp/services/auth_service.dart';
 import 'package:chatapp/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,22 +15,38 @@ class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
   void register(BuildContext context) async {
-    final authManager = AuthManager();
-    authManager.showLoadingDialog(context);
+    String usernameValidation =
+        AuthService().validateUsername(usernameController.text);
 
-    String res = await authManager.signUp(
-        usernameController.text, emailController.text, passwordController.text);
+    if (usernameValidation == "Success") {
+      final authManager = AuthManager();
+      authManager.showLoadingDialog(context);
 
-    if (context.mounted) {
-      authManager.navigateToHome(context, res, res == "Success");
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Center(
-            child: Text(res),
+      String res = await authManager.signUp(usernameController.text,
+          emailController.text, passwordController.text);
+
+      if (context.mounted) {
+        authManager.navigateToHome(context, res, res == "Success");
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Center(
+              child: Text(res),
+            ),
           ),
-        ),
-      );
+        );
+      }
+    } else {
+      if (context.mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Center(
+              child: Text(usernameValidation),
+            ),
+          ),
+        );
+      }
     }
   }
 
