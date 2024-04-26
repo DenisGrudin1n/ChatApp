@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyHomeAppbar(),
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(),
       body: BuildUserList(),
     );
   }

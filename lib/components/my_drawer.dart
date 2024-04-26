@@ -4,7 +4,9 @@ import 'package:chatapp/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  final AuthService authService = AuthService();
+
+  MyDrawer({super.key});
 
   void logout(BuildContext context) async {
     final authService = AuthService();
@@ -49,7 +51,7 @@ class MyDrawer extends StatelessWidget {
                   ),
                   const SizedBox(height: 7.5),
                   Text(
-                    "Username",
+                    "${authService.getCurrentUser()!.email}",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.tertiary,
                         fontWeight: mediumFontWeight,
