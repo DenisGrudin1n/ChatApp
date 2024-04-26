@@ -2,11 +2,12 @@ import 'package:chatapp/components/my_login_upperpart_ui.dart';
 import 'package:chatapp/components/my_default_button.dart';
 import 'package:chatapp/components/my_textfield.dart';
 import 'package:chatapp/constants/constants.dart';
-import 'package:chatapp/services/auth_manager.dart';
+import 'package:chatapp/services/auth/auth_manager.dart';
 import 'package:chatapp/views/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -16,8 +17,8 @@ class LoginPage extends StatelessWidget {
     final authManager = AuthManager();
     authManager.showLoadingDialog(context);
 
-    String res =
-        await authManager.signIn(emailController.text, passwordController.text);
+    String res = await authManager.signIn(
+        usernameController.text, emailController.text, passwordController.text);
 
     if (context.mounted) {
       authManager.navigateToHome(context, res, res == "Success");

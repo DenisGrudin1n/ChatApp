@@ -1,3 +1,4 @@
+import 'package:chatapp/components/build_user_list.dart';
 import 'package:chatapp/components/my_drawer.dart';
 import 'package:chatapp/components/my_home_appbar.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +8,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: MyHomeAppbar(),
-      drawer: MyDrawer(),
+    return Scaffold(
+      appBar: const MyHomeAppbar(),
+      drawer: const MyDrawer(),
+      body: BuildUserList(),
     );
   }
 }

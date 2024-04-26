@@ -1,7 +1,7 @@
 import 'package:chatapp/controllers/auth_controller.dart';
 import 'package:chatapp/controllers/login_or_register_controller.dart';
 import 'package:chatapp/firebase_options.dart';
-import 'package:chatapp/services/auth_gate.dart';
+import 'package:chatapp/services/auth/auth_gate.dart';
 import 'package:chatapp/themes/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

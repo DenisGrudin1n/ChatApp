@@ -1,5 +1,5 @@
 import 'package:chatapp/constants/constants.dart';
-import 'package:chatapp/services/auth_service.dart';
+import 'package:chatapp/services/auth/auth_service.dart';
 import 'package:chatapp/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
 

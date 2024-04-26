@@ -1,4 +1,4 @@
-import 'package:chatapp/services/auth_service.dart';
+import 'package:chatapp/services/auth/auth_service.dart';
 import 'package:chatapp/views/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +15,10 @@ class AuthManager {
     }
   }
 
-  Future<String> signIn(String email, String password) async {
+  Future<String> signIn(String username, String email, String password) async {
     try {
-      String res = await authService.signInWithEmailPassword(email, password);
+      String res =
+          await authService.signInWithEmailPassword(username, email, password);
       return res;
     } catch (e) {
       return e.toString();

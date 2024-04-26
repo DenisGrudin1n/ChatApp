@@ -7,6 +7,6 @@ ThemeData lightMode = ThemeData(
     primary: Colors.grey.shade500,
     secondary: kBlack,
     tertiary: kWhite,
-    inversePrimary: Colors.grey.shade900,
+    inversePrimary: lightBlue,
   ),
 );
