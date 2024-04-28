@@ -41,106 +41,114 @@ class LoginPage extends StatelessWidget {
         children: [
           const Expanded(child: LoginUpperUI()),
           Expanded(
-            child: Container(
-              color: Theme.of(context).colorScheme.background,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
+            child: ListView(
+              children: [
+                Container(
+                  color: Theme.of(context).colorScheme.background,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0, top: 15),
-                          child: Icon(
-                            Icons.email,
-                            color: Theme.of(context).highlightColor,
-                            size: 30,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: MyTextField(
-                            hintText: "Email",
-                            obscureText: false,
-                            controller: emailController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0, top: 15),
-                          child: Icon(
-                            Icons.lock,
-                            color: Theme.of(context).highlightColor,
-                            size: 30,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: MyTextField(
-                            hintText: "Password",
-                            obscureText: true,
-                            controller: passwordController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    MyDefaultButton(
-                      text: "Get Started",
-                      onTap: () => login(context),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0),
-                          child: GestureDetector(
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RegisterPage())),
-                            child: Text(
-                              "Create Account",
-                              style: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
-                                  fontSize: 14,
-                                  fontWeight: mediumFontWeight),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 30.0),
-                              child: Text(
-                                "Forgot Password",
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    fontSize: 14,
-                                    fontWeight: mediumFontWeight),
-                                textAlign: TextAlign.right,
+                        Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30.0, top: 15),
+                              child: Icon(
+                                Icons.email,
+                                color: Theme.of(context).highlightColor,
+                                size: 30,
                               ),
                             ),
-                          ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: MyTextField(
+                                hintText: "Email",
+                                obscureText: false,
+                                controller: emailController,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30.0, top: 15),
+                              child: Icon(
+                                Icons.lock,
+                                color: Theme.of(context).highlightColor,
+                                size: 30,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: MyTextField(
+                                hintText: "Password",
+                                obscureText: true,
+                                controller: passwordController,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        MyDefaultButton(
+                          text: "Get Started",
+                          onTap: () => login(context),
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30.0),
+                              child: GestureDetector(
+                                onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => RegisterPage())),
+                                child: Text(
+                                  "Create Account",
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      fontSize: 14,
+                                      fontWeight: mediumFontWeight),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 30.0),
+                                  child: Text(
+                                    "Forgot Password",
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontSize: 14,
+                                        fontWeight: mediumFontWeight),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ],

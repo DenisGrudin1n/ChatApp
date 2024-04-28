@@ -61,121 +61,130 @@ class RegisterPage extends StatelessWidget {
             child: LoginUpperUI(),
           ),
           Expanded(
-            child: Container(
-              color: Theme.of(context).colorScheme.background,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0, top: 15),
-                          child: Icon(
-                            Icons.person,
-                            color: Theme.of(context).highlightColor,
-                            size: 30,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: MyTextField(
-                            hintText: "Username",
-                            obscureText: false,
-                            controller: usernameController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0, top: 15),
-                          child: Icon(
-                            Icons.email,
-                            color: Theme.of(context).highlightColor,
-                            size: 30,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: MyTextField(
-                            hintText: "Email",
-                            obscureText: false,
-                            controller: emailController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30.0, top: 15),
-                          child: Icon(
-                            Icons.lock,
-                            color: Theme.of(context).highlightColor,
-                            size: 30,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: MyTextField(
-                            hintText: "Password",
-                            obscureText: true,
-                            controller: passwordController,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 35,
-                    ),
-                    MyDefaultButton(
-                      text: "Create Account",
-                      onTap: () => register(context),
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Row(
+            child: ListView(
+              children: [
+                Container(
+                  color: Theme.of(context).colorScheme.background,
+                  child: Center(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Row(
                           children: [
-                            Text(
-                              "Already have an account? ",
-                              style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 14,
-                                  fontWeight: mediumFontWeight),
-                            ),
-                            GestureDetector(
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginPage())),
-                              child: Text(
-                                "Log in",
-                                style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    fontSize: 14,
-                                    fontWeight: mediumFontWeight),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30.0, top: 15),
+                              child: Icon(
+                                Icons.person,
+                                color: Theme.of(context).highlightColor,
+                                size: 30,
                               ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: MyTextField(
+                                hintText: "Username",
+                                obscureText: false,
+                                controller: usernameController,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30.0, top: 15),
+                              child: Icon(
+                                Icons.email,
+                                color: Theme.of(context).highlightColor,
+                                size: 30,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: MyTextField(
+                                hintText: "Email",
+                                obscureText: false,
+                                controller: emailController,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30.0, top: 15),
+                              child: Icon(
+                                Icons.lock,
+                                color: Theme.of(context).highlightColor,
+                                size: 30,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: MyTextField(
+                                hintText: "Password",
+                                obscureText: true,
+                                controller: passwordController,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        MyDefaultButton(
+                          text: "Create Account",
+                          onTap: () => register(context),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Already have an account? ",
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                      fontSize: 14,
+                                      fontWeight: mediumFontWeight),
+                                ),
+                                GestureDetector(
+                                  onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginPage())),
+                                  child: Text(
+                                    "Log in",
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontSize: 14,
+                                        fontWeight: mediumFontWeight),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ],

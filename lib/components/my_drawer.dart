@@ -64,7 +64,7 @@ class MyDrawer extends StatelessWidget {
                                     lightMode
                                 ? Icons.dark_mode
                                 : Icons.light_mode,
-                            size: 25,
+                            size: 27.5,
                             color: kWhite,
                           ),
                         ),

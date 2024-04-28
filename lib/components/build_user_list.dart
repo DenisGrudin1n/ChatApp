@@ -37,12 +37,15 @@ class BuildUserList extends StatelessWidget {
           }
 
           // return list view
-          return ListView(
-            children: snapshot.data!
-                .map<Widget>(
-                  (userData) => buildUserListItem(userData, context),
-                )
-                .toList(),
+          return Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: ListView(
+              children: snapshot.data!
+                  .map<Widget>(
+                    (userData) => buildUserListItem(userData, context),
+                  )
+                  .toList(),
+            ),
           );
         });
   }
