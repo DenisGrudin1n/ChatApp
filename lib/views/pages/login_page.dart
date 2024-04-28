@@ -49,11 +49,11 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 30.0, top: 15),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0, top: 15),
                           child: Icon(
                             Icons.email,
-                            color: lightPurple,
+                            color: Theme.of(context).highlightColor,
                             size: 30,
                           ),
                         ),
@@ -72,11 +72,11 @@ class LoginPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 30.0, top: 15),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0, top: 15),
                           child: Icon(
                             Icons.lock,
-                            color: lightPurple,
+                            color: Theme.of(context).highlightColor,
                             size: 30,
                           ),
                         ),

@@ -69,11 +69,11 @@ class RegisterPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 30.0, top: 15),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0, top: 15),
                           child: Icon(
                             Icons.person,
-                            color: lightPurple,
+                            color: Theme.of(context).highlightColor,
                             size: 30,
                           ),
                         ),
@@ -92,11 +92,11 @@ class RegisterPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 30.0, top: 15),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0, top: 15),
                           child: Icon(
                             Icons.email,
-                            color: lightPurple,
+                            color: Theme.of(context).highlightColor,
                             size: 30,
                           ),
                         ),
@@ -115,11 +115,11 @@ class RegisterPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 30.0, top: 15),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30.0, top: 15),
                           child: Icon(
                             Icons.lock,
-                            color: lightPurple,
+                            color: Theme.of(context).highlightColor,
                             size: 30,
                           ),
                         ),

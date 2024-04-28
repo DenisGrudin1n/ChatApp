@@ -1,7 +1,10 @@
 import 'package:chatapp/constants/constants.dart';
+import 'package:chatapp/controllers/theme_controller.dart';
 import 'package:chatapp/services/auth/auth_service.dart';
+import 'package:chatapp/themes/themes.dart';
 import 'package:chatapp/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyDrawer extends StatelessWidget {
   final AuthService authService = AuthService();
@@ -37,23 +40,42 @@ class MyDrawer extends StatelessWidget {
             height: 150,
             width: 320,
             child: DrawerHeader(
-              decoration: const BoxDecoration(color: lightBlue),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.inversePrimary),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: CircleAvatar(
-                      radius: 27.5,
-                      backgroundImage: NetworkImage(
-                          'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp'),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CircleAvatar(
+                          radius: 27.5,
+                          backgroundImage: NetworkImage(
+                              'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp'),
+                        ),
+                        IconButton(
+                          onPressed: () => Provider.of<ThemeController>(context,
+                                  listen: false)
+                              .toggleTheme(),
+                          icon: Icon(
+                            Provider.of<ThemeController>(context).themeData ==
+                                    lightMode
+                                ? Icons.dark_mode
+                                : Icons.light_mode,
+                            size: 25,
+                            color: kWhite,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 7.5),
                   Text(
                     "${authService.getCurrentUser()!.email}",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.tertiary,
+                    style: const TextStyle(
+                        color: kWhite,
                         fontWeight: mediumFontWeight,
                         fontSize: 15),
                   ),

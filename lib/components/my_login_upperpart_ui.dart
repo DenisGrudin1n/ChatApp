@@ -1,4 +1,3 @@
-import 'package:chatapp/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginUpperUI extends StatelessWidget {
@@ -7,7 +6,7 @@ class LoginUpperUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: lightBlue,
+      color: Theme.of(context).colorScheme.inversePrimary,
       child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

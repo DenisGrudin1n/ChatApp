@@ -12,7 +12,8 @@ class MyDefaultButton extends StatelessWidget {
     return TextButton(
       onPressed: onTap,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(lightPurple),
+        backgroundColor:
+            MaterialStateProperty.all(Theme.of(context).highlightColor),
         shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))),
         fixedSize: MaterialStateProperty.all(const Size(335, 60)),

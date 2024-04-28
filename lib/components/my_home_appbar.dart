@@ -7,22 +7,20 @@ class MyHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Row(
+      title: const Row(
         children: [
           Text(
             "ChatLite",
             style: TextStyle(
-                fontSize: 20,
-                fontWeight: mediumFontWeight,
-                color: Theme.of(context).colorScheme.tertiary),
+                fontSize: 20, fontWeight: mediumFontWeight, color: kWhite),
           ),
-          const SizedBox(
+          SizedBox(
             width: 5,
           ),
         ],
       ),
-      backgroundColor: lightBlue,
-      iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      iconTheme: const IconThemeData(color: kWhite),
     );
   }
 

@@ -30,14 +30,14 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           receiverEmail,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.tertiary,
+          style: const TextStyle(
+            color: kWhite,
             fontSize: 20,
             fontWeight: mediumFontWeight,
           ),
         ),
-        backgroundColor: lightBlue,
-        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        iconTheme: const IconThemeData(color: kWhite),
       ),
       body: Column(
         children: [
