@@ -9,4 +9,5 @@ ThemeData lightMode = ThemeData(
     tertiary: kWhite,
     inversePrimary: lightBlue,
   ),
+  primaryColor: Colors.grey.shade400,
 );
