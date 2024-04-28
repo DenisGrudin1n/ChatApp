@@ -17,12 +17,23 @@ class BuildUserList extends StatelessWidget {
         builder: (context, snapshot) {
           // error
           if (snapshot.hasError) {
-            return const Text("Error");
+            return const Center(
+              child: Text("Error"),
+            );
           }
 
           // loading...
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text("Loading...");
+            return const Center(
+              child: Text("Loading..."),
+            );
+          }
+
+          // no users
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(
+              child: Text("No users found"),
+            );
           }
 
           // return list view

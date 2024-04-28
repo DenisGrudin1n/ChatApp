@@ -58,18 +58,36 @@ class ChatPage extends StatelessWidget {
       stream: chatService.getMessages(receiverId, senderId),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return const Text("Error");
+          return const Center(
+            child: Text(
+              "Error",
+              style: TextStyle(fontSize: 20),
+            ),
+          );
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Text("Loading");
+          return const Center(
+            child: Text(
+              "Loading...",
+              style: TextStyle(fontSize: 20),
+            ),
+          );
         }
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-          return const Text("No messages");
+          return const Center(
+            child: Text(
+              "No messages yet",
+              style: TextStyle(fontSize: 20),
+            ),
+          );
         }
-        return ListView(
-          children: snapshot.data!.docs
-              .map((doc) => buildMessageItem(doc, senderId))
-              .toList(),
+        return Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: ListView(
+            children: snapshot.data!.docs
+                .map((doc) => buildMessageItem(doc, senderId))
+                .toList(),
+          ),
         );
       },
     );
