@@ -6,31 +6,31 @@ ChatLite is a messaging application developed using Flutter + Firebase. It provi
 
 ### Login Page:
 <div>
-  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/93b3efc2-fe9a-46a3-b85e-92c015b2f236" width="300" />
+  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/93b3efc2-fe9a-46a3-b85e-92c015b2f236" width="300" />ㅤㅤ
   <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/65c1625b-76bb-49f2-b47f-f8ed6397a8ce" width="300" />
 </div>
 
 ### Register Page:
 <div>
-  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/f85f65f7-182d-4440-8717-47be0a978be0" width="300" />
+  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/f85f65f7-182d-4440-8717-47be0a978be0" width="300" />ㅤㅤ
   <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/e0f06ce6-c78c-4282-a7ef-c6843b7f9b94" width="300" />
 </div>
 
 ### Home Page:
 <div>
-  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/74005d0f-8256-4ef8-b2b2-e2072b864de4" width="300" />
+  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/74005d0f-8256-4ef8-b2b2-e2072b864de4" width="300" />ㅤㅤ
   <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/e1b57995-2749-486b-9524-76e6359ca58f" width="300" />
 </div>
 
 ### Chat Page:
 <div>
-  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/7528c572-cf05-4678-878f-f76fe7b2b0ef" width="300" />
+  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/7528c572-cf05-4678-878f-f76fe7b2b0ef" width="300" />ㅤㅤ
   <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/ac1c0c25-59c3-48c4-a818-4b7f0da30040" width="300" />
 </div>
 
 ### Drawer:
 <div>
-  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/adf72efe-e8d1-4990-a8ac-3dd2a19779af" width="300" />
+  <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/adf72efe-e8d1-4990-a8ac-3dd2a19779af" width="300" />ㅤㅤ
   <img src="https://github.com/DenisGrudin1n/ChatApp/assets/157652311/639c143c-f8f7-4acc-9c28-77430223ff3b" width="300" />
 </div>
 
@@ -50,7 +50,7 @@ ChatLite is a messaging application developed using Flutter + Firebase. It provi
 
 ## Project Structure Overview
  
- Now, let's dive into the lib folder which has the main code for the application.
+The project follows a MVC+S structure, organized into various directories:
 
 ### components
 
